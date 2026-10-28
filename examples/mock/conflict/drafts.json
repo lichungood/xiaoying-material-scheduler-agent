@@ -1,0 +1,13 @@
+[
+  {
+    "draft_id": "draft_95a68a4077d1758a1777d497",
+    "request_id": "conflict-001",
+    "material_id": "M01",
+    "request_hash": "bcfdfc2c0bafdf505ab2b079f9310c2f6b100b1508144f579ebd9d46d425795f",
+    "channel": "douyin",
+    "proposed_at": "2026-11-01T19:00+08:00",
+    "confirmation_status": "pending",
+    "requested_at": "2026-11-01T18:00+08:00",
+    "hard_time": 1
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "recorded_interval_start": "2026-10-28T04:26:32Z",
+  "verification_completed_at": "2026-10-28T04:38:50Z",
+  "elapsed_seconds": 738,
+  "timezone_for_user": "Asia/Shanghai",
+  "interval_scope": "AI-assisted project scaffolding, implementation, documentation and clean-archive offline verification. Excludes earlier discussion and later delivery packaging.",
+  "candidate_personal_minutes": null,
+  "implementation_assistance": "Codex generated most source, tests, synthetic data and draft documents, and executed the recorded checks.",
+  "runtime_provider": "mock",
+  "live_model_calls": 0,
+  "tests_passed": 38,
+  "scenarios_passed": 13,
+  "remaining": [
+    "Real model decision evaluation and traces",
+    "Candidate personal reproduction, changes and time record",
+    "GitHub repository URL and final commit SHA"
+  ]
+}

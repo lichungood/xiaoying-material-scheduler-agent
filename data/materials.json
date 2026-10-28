@@ -1,0 +1,7 @@
+{
+  "M01": {"title": "字幕功能介绍", "rights_status": "licensed", "content_tags": [], "allowed_channels": ["douyin", "xiaohongshu"], "description": "合成产品素材：支持添加字幕，不包含任何效果数据。"},
+  "M02": {"title": "待补版权的教程", "content_tags": [], "allowed_channels": ["douyin"]},
+  "M03": {"title": "存在夸大承诺的广告", "rights_status": "licensed", "content_tags": ["unsubstantiated_claim"], "allowed_channels": ["douyin"]},
+  "M04": {"title": "登记表可补全的素材", "content_tags": [], "allowed_channels": ["douyin"]},
+  "M05": {"title": "无版权授权的素材", "rights_status": "unlicensed", "content_tags": [], "allowed_channels": ["douyin"]}
+}

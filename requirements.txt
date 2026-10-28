@@ -1,0 +1,2 @@
+# Python >= 3.11. Runtime and tests use the Python standard library only.
+# No pip install is needed for offline execution.

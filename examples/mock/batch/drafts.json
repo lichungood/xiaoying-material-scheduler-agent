@@ -1,0 +1,24 @@
+[
+  {
+    "draft_id": "draft_7806d97fbfbf8d7e8ff4d33e",
+    "request_id": "batch-001",
+    "material_id": "M01",
+    "request_hash": "35dcaaed625996d73b4ee1e1ef0d8ea7848ccbe3ec1cf0454c795b29fe703e9a",
+    "channel": "douyin",
+    "proposed_at": "2026-11-01T19:00+08:00",
+    "confirmation_status": "not_required",
+    "requested_at": "2026-11-01T19:00+08:00",
+    "hard_time": 1
+  },
+  {
+    "draft_id": "draft_ff83c6f4cf11d2d28491223f",
+    "request_id": "batch-001",
+    "material_id": "M04",
+    "request_hash": "35dcaaed625996d73b4ee1e1ef0d8ea7848ccbe3ec1cf0454c795b29fe703e9a",
+    "channel": "douyin",
+    "proposed_at": "2026-11-01T20:00+08:00",
+    "confirmation_status": "pending",
+    "requested_at": "2026-11-01T19:00+08:00",
+    "hard_time": 1
+  }
+]

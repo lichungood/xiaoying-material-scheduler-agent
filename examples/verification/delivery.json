@@ -1,0 +1,336 @@
+{
+  "recorded_at": "2026-10-28T04:58:29.313193+00:00",
+  "successful": true,
+  "checks_run": 81,
+  "actual_output_files": 15,
+  "actual_trace_steps": 79,
+  "broken_links": [],
+  "suspicious_files": [],
+  "checks": [
+    {
+      "check": "required_files",
+      "passed": true
+    },
+    {
+      "check": "document_links_resolve",
+      "passed": true
+    },
+    {
+      "check": "all_scenarios_pass",
+      "passed": true
+    },
+    {
+      "check": "at_least_three_actual_runs",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\batch\\output.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\batch\\output.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\batch\\output.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\batch\\output.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\batch\\output.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\changed_schedule\\output.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\changed_schedule\\output.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\changed_schedule\\output.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\changed_schedule\\output.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\changed_schedule\\output.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\confirmation\\output-2.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\confirmation\\output-2.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\confirmation\\output-2.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\confirmation\\output-2.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\confirmation\\output-2.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\confirmation\\output.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\confirmation\\output.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\confirmation\\output.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\confirmation\\output.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\confirmation\\output.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\conflict\\output.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\conflict\\output.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\conflict\\output.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\conflict\\output.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\conflict\\output.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\duplicate\\output-2.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\duplicate\\output-2.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\duplicate\\output-2.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\duplicate\\output-2.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\duplicate\\output-2.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\duplicate\\output.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\duplicate\\output.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\duplicate\\output.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\duplicate\\output.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\duplicate\\output.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\missing\\output.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\missing\\output.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\missing\\output.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\missing\\output.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\missing\\output.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\no_slots\\output.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\no_slots\\output.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\no_slots\\output.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\no_slots\\output.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\no_slots\\output.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\normal\\output.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\normal\\output.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\normal\\output.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\normal\\output.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\normal\\output.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\query_failure\\output.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\query_failure\\output.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\query_failure\\output.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\query_failure\\output.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\query_failure\\output.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\risk\\output.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\risk\\output.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\risk\\output.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\risk\\output.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\risk\\output.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\save_failure\\output.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\save_failure\\output.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\save_failure\\output.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\save_failure\\output.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\save_failure\\output.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\step_limit\\output.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\step_limit\\output.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\step_limit\\output.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\step_limit\\output.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\step_limit\\output.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\supplement\\output.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\supplement\\output.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\supplement\\output.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\supplement\\output.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\mock\\supplement\\output.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "all_tests_pass",
+      "passed": true
+    },
+    {
+      "check": "no_api_key_patterns",
+      "passed": true
+    }
+  ],
+  "live_model_evaluated": false
+}

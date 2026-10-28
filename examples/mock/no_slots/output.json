@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "run_id": "c544c70d-1d25-4eaf-ac4f-0d79031be351",
+  "recorded_at": "2026-10-28T04:33:17.615704+00:00",
+  "provider": "mock",
+  "model": "offline-response-policy-v1",
+  "evidence_scope": "offline_workflow_only",
+  "request": {
+    "request_id": "no_slots-001",
+    "material_ids": [
+      "M01"
+    ],
+    "channel": "douyin",
+    "requested_at": "2026-11-01T18:00+08:00",
+    "search_window": {
+      "start": "2026-11-01T18:00+08:00",
+      "end": "2026-11-01T18:00+08:00"
+    },
+    "hard_time": true,
+    "confirmed_slots": {}
+  },
+  "max_steps": 30,
+  "steps_used": 4,
+  "tool_calls_used": 3,
+  "task_status": "no_feasible_slot",
+  "items": [
+    {
+      "material_id": "M01",
+      "task_status": "no_feasible_slot",
+      "review_status": "passed",
+      "risk_reasons": [],
+      "requested_at": "2026-11-01T18:00+08:00",
+      "suggested_at": null,
+      "pending_items": [
+        "扩大搜索窗口或重新确认可用时段"
+      ],
+      "save_status": "not_attempted",
+      "draft": null,
+      "termination": "finished",
+      "published": false
+    }
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "material_id": "M01",
+      "tool": "read_material",
+      "arguments": {
+        "include_supplement": false
+      },
+      "reason": "先读取素材事实",
+      "result": {
+        "ok": true,
+        "status": "found",
+        "material_id": "M01",
+        "metadata": {
+          "title": "字幕功能介绍",
+          "rights_status": "licensed",
+          "content_tags": [],
+          "allowed_channels": [
+            "douyin",
+            "xiaohongshu"
+          ],
+          "description": "合成产品素材：支持添加字幕，不包含任何效果数据。"
+        },
+        "supplement_used": false,
+        "source": "synthetic_catalog"
+      },
+      "next_action": "check_rules",
+      "result_summary": {
+        "ok": true,
+        "status": "found"
+      }
+    },
+    {
+      "step": 2,
+      "material_id": "M01",
+      "tool": "check_rules",
+      "arguments": {},
+      "reason": "依据刚读取的元数据检查规则",
+      "result": {
+        "ok": true,
+        "status": "passed",
+        "missing_fields": [],
+        "risks": [],
+        "rules_version": "synthetic-2026-10-28-v1"
+      },
+      "next_action": "query_slots",
+      "result_summary": {
+        "ok": true,
+        "status": "passed",
+        "missing_fields": [],
+        "risks": []
+      }
+    },
+    {
+      "step": 3,
+      "material_id": "M01",
+      "tool": "query_slots",
+      "arguments": {
+        "start_at": "2026-11-01T18:00+08:00",
+        "end_at": "2026-11-01T18:00+08:00"
+      },
+      "reason": "审核通过或发现冲突，查询用户窗口内的时段",
+      "result": {
+        "ok": true,
+        "channel": "douyin",
+        "slots": [
+          {
+            "at": "2026-11-01T18:00+08:00",
+            "available": false
+          }
+        ],
+        "requested_at": "2026-11-01T18:00+08:00",
+        "existing_draft": null
+      },
+      "next_action": "finish",
+      "result_summary": {
+        "ok": true
+      }
+    },
+    {
+      "step": 4,
+      "material_id": "M01",
+      "tool": "finish",
+      "arguments": {
+        "suggested_at": null
+      },
+      "reason": "窗口内没有可用时段，无法形成无冲突草稿",
+      "result": {
+        "ok": true,
+        "status": "finished"
+      },
+      "next_action": "end_item",
+      "result_summary": {
+        "ok": true,
+        "status": "finished"
+      }
+    }
+  ],
+  "published": false
+}

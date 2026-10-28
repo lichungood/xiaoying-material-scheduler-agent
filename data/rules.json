@@ -1,0 +1,8 @@
+{
+  "version": "synthetic-2026-10-28-v1",
+  "required_fields": ["title", "rights_status", "allowed_channels"],
+  "blocked_tags": [
+    {"id": "R-CLAIM", "tag": "unsubstantiated_claim", "reason": "包含未经证实的效果或绝对化承诺，需人工审核修订"},
+    {"id": "R-PRIVACY", "tag": "personal_data", "reason": "存在个人信息，需脱敏后重新审核"}
+  ]
+}
