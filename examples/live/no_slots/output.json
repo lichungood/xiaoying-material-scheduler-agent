@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "run_id": "a3ba6435-62c1-472b-acc8-d940271611ef",
+  "recorded_at": "2026-10-28T05:26:06.795497+00:00",
+  "provider": "live",
+  "model": "qwen-plus",
+  "evidence_scope": "live_model_run",
+  "request": {
+    "request_id": "no_slots-001",
+    "material_ids": [
+      "M01"
+    ],
+    "channel": "douyin",
+    "requested_at": "2026-11-01T18:00+08:00",
+    "search_window": {
+      "start": "2026-11-01T18:00+08:00",
+      "end": "2026-11-01T18:00+08:00"
+    },
+    "hard_time": true,
+    "confirmed_slots": {}
+  },
+  "max_steps": 30,
+  "steps_used": 4,
+  "tool_calls_used": 3,
+  "task_status": "no_feasible_slot",
+  "items": [
+    {
+      "material_id": "M01",
+      "task_status": "no_feasible_slot",
+      "review_status": "passed",
+      "risk_reasons": [],
+      "requested_at": "2026-11-01T18:00+08:00",
+      "suggested_at": null,
+      "pending_items": [
+        "扩大搜索窗口或重新确认可用时段"
+      ],
+      "save_status": "not_attempted",
+      "draft": null,
+      "termination": "finished",
+      "published": false
+    }
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "material_id": "M01",
+      "tool": "read_material",
+      "arguments": {
+        "include_supplement": false
+      },
+      "reason": "开始处理素材M01，先读取基础元数据",
+      "result": {
+        "ok": true,
+        "status": "found",
+        "material_id": "M01",
+        "metadata": {
+          "title": "字幕功能介绍",
+          "rights_status": "licensed",
+          "content_tags": [],
+          "allowed_channels": [
+            "douyin",
+            "xiaohongshu"
+          ],
+          "description": "合成产品素材：支持添加字幕，不包含任何效果数据。"
+        },
+        "supplement_used": false,
+        "review_required": true,
+        "source": "synthetic_catalog"
+      },
+      "model_receipt": {
+        "service_host": "dashscope.aliyuncs.com",
+        "requested_model": "qwen-plus",
+        "returned_model": "qwen-plus",
+        "response_id": "chatcmpl-4974a17f-6542-904d-b622-832c94a6524b",
+        "tool_call_id": "call_1852c6955c1248a7b326c3",
+        "usage": {
+          "total_tokens": 1160,
+          "completion_tokens": 35,
+          "prompt_tokens": 1125,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "latency_ms": 1186
+      },
+      "next_action": "check_rules",
+      "result_summary": {
+        "ok": true,
+        "status": "found"
+      }
+    },
+    {
+      "step": 2,
+      "material_id": "M01",
+      "tool": "check_rules",
+      "arguments": {},
+      "reason": "已读取素材元数据，执行规则审核",
+      "result": {
+        "ok": true,
+        "status": "passed",
+        "missing_fields": [],
+        "risks": [],
+        "rules_version": "synthetic-2026-10-28-v1"
+      },
+      "model_receipt": {
+        "service_host": "dashscope.aliyuncs.com",
+        "requested_model": "qwen-plus",
+        "returned_model": "qwen-plus",
+        "response_id": "chatcmpl-5a47dbb1-d261-9f19-99a7-6cfbe66ba947",
+        "tool_call_id": "call_e07466b58a554960b66760",
+        "usage": {
+          "total_tokens": 1323,
+          "completion_tokens": 25,
+          "prompt_tokens": 1298,
+          "prompt_tokens_details": {
+            "cached_tokens": 512
+          }
+        },
+        "latency_ms": 811
+      },
+      "next_action": "query_slots",
+      "result_summary": {
+        "ok": true,
+        "status": "passed",
+        "missing_fields": [],
+        "risks": []
+      }
+    },
+    {
+      "step": 3,
+      "material_id": "M01",
+      "tool": "query_slots",
+      "arguments": {
+        "start_at": "2026-11-01T18:00+08:00",
+        "end_at": "2026-11-01T18:00+08:00"
+      },
+      "reason": "审核通过，查询用户指定的硬性时段是否可用",
+      "result": {
+        "ok": true,
+        "channel": "douyin",
+        "slots": [
+          {
+            "at": "2026-11-01T18:00+08:00",
+            "available": false
+          }
+        ],
+        "requested_at": "2026-11-01T18:00+08:00",
+        "existing_draft": null
+      },
+      "model_receipt": {
+        "service_host": "dashscope.aliyuncs.com",
+        "requested_model": "qwen-plus",
+        "returned_model": "qwen-plus",
+        "response_id": "chatcmpl-06478102-1afc-9231-b778-cec463f54105",
+        "tool_call_id": "call_6a02654b30504c4fbc8e99",
+        "usage": {
+          "total_tokens": 1478,
+          "completion_tokens": 83,
+          "prompt_tokens": 1395,
+          "prompt_tokens_details": {
+            "cached_tokens": 1024
+          }
+        },
+        "latency_ms": 2089
+      },
+      "next_action": "finish",
+      "result_summary": {
+        "ok": true
+      }
+    },
+    {
+      "step": 4,
+      "material_id": "M01",
+      "tool": "finish",
+      "arguments": {
+        "suggested_at": null
+      },
+      "reason": "硬性时间不可用，且搜索窗口仅含该时段，无法提供替代，任务终止",
+      "result": {
+        "ok": true,
+        "status": "finished"
+      },
+      "model_receipt": {
+        "service_host": "dashscope.aliyuncs.com",
+        "requested_model": "qwen-plus",
+        "returned_model": "qwen-plus",
+        "response_id": "chatcmpl-f66da8f9-367d-91da-8da9-de14ab020075",
+        "tool_call_id": "call_eb3c93a28c264c678c50cd",
+        "usage": {
+          "total_tokens": 1687,
+          "completion_tokens": 41,
+          "prompt_tokens": 1646,
+          "prompt_tokens_details": {
+            "cached_tokens": 512
+          }
+        },
+        "latency_ms": 1347
+      },
+      "next_action": "end_item",
+      "result_summary": {
+        "ok": true,
+        "status": "finished"
+      }
+    }
+  ],
+  "published": false
+}

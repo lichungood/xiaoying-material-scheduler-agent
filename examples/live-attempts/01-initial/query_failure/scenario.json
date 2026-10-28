@@ -1,0 +1,16 @@
+{
+  "provider": "live",
+  "faults": {
+    "query_slots": 1
+  },
+  "max_steps": 30,
+  "schedule": [
+    {
+      "channel": "douyin",
+      "at": "2026-11-01T18:00+08:00",
+      "source_id": "existing-synthetic-001"
+    }
+  ],
+  "repetitions": 1,
+  "expected_final_status": "completed"
+}

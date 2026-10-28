@@ -1,0 +1,14 @@
+{
+  "provider": "live",
+  "faults": {},
+  "max_steps": 2,
+  "schedule": [
+    {
+      "channel": "douyin",
+      "at": "2026-11-01T18:00+08:00",
+      "source_id": "existing-synthetic-001"
+    }
+  ],
+  "repetitions": 1,
+  "expected_final_status": "incomplete"
+}

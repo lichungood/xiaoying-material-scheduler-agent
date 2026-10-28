@@ -397,6 +397,35 @@ class LiveContractTests(unittest.TestCase):
         self.assertTrue(all(tool["function"]["strict"] for tool in TOOL_SCHEMAS))
         self.assertEqual(action.name, "finish")
 
+    def test_qwen_request_and_response_receipt(self):
+        response = MagicMock()
+        response.__enter__.return_value.read.return_value = json.dumps({
+            "id": "chatcmpl-test-receipt", "model": "qwen-plus", "usage": {"total_tokens": 25},
+            "choices": [{"message": {"tool_calls": [{"id": "qwen-call", "function": {
+                "name": "read_material", "arguments": json.dumps({"include_supplement": False, "reason": "读取"})}}]}}]
+        }).encode("utf-8")
+        with patch("urllib.request.urlopen", return_value=response) as send:
+            provider = LiveProvider({"LLM_BASE_URL": "https://dashscope.aliyuncs.com/compatible-mode/v1", "LLM_MODEL": "qwen-plus", "LLM_API_KEY": "test-placeholder"})
+            action = provider.decide([], {})
+        body = json.loads(send.call_args.args[0].data)
+        self.assertFalse(body["enable_thinking"])
+        self.assertFalse(body["parallel_tool_calls"])
+        self.assertEqual(body["tool_choice"], "required")
+        self.assertTrue(all("strict" not in tool["function"] for tool in body["tools"]))
+        self.assertEqual(action.receipt["response_id"], "chatcmpl-test-receipt")
+        self.assertEqual(action.receipt["usage"], {"total_tokens": 25})
+        self.assertNotIn("test-placeholder", json.dumps(action.receipt))
+
+    def test_http_error_trace_contains_status_but_no_response_body(self):
+        import urllib.error
+        from src.scheduler.providers import ModelCallError
+        with patch("urllib.request.urlopen", side_effect=urllib.error.HTTPError("https://example.invalid", 401, "secret-body", {}, None)):
+            provider = LiveProvider({"LLM_BASE_URL": "https://example.invalid/v1", "LLM_MODEL": "test-model", "LLM_API_KEY": "test-placeholder"})
+            with self.assertRaises(ModelCallError) as raised:
+                provider.decide([], {})
+        self.assertEqual(raised.exception.http_status, 401)
+        self.assertNotIn("secret-body", str(raised.exception))
+
 
 if __name__ == "__main__":
     unittest.main()

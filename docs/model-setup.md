@@ -1,32 +1,34 @@
-# DeepSeek 本机配置
+# 千问本机配置与复现
 
-当前服务商为候选人选择的 DeepSeek。根据 2026-10-28 实际读取的[官方入口](https://api-docs.deepseek.com/)，本项目采用普通 Chat Completions 地址 `https://api.deepseek.com`，模型名使用 `deepseek-flash`。
+当前真实评估使用阿里云百炼的 `qwen-plus`，中国内地 OpenAI 兼容地址为 `https://dashscope.aliyuncs.com/compatible-mode/v1`。该配置已经实际完成模型调用。
 
-## 操作步骤
+## 本机配置
 
-1. 登录 [DeepSeek API Keys 后台](https://platform.deepseek.com/api_keys)，创建并复制 API Key。
-2. 打开项目根目录的本机 `.env` 文件。接口地址和模型名已预填，只在 `LLM_API_KEY=` 后填写自己的密钥并保存。
-3. 不要把密钥发到聊天、截图或 GitHub。该文件已被 Git 忽略，也不会进入项目压缩包。
-4. 在项目根目录运行：
-
-```console
-python -m src.scheduler demo --provider live --env-file .env --out examples/live
-```
-
-本机配置结构如下，其中密钥占位文字必须替换：
+将 `.env.example` 复制为项目根目录的 `.env`，只在本机填写密钥：
 
 ```dotenv
-LLM_BASE_URL=https://api.deepseek.com
-LLM_MODEL=deepseek-flash
-LLM_API_KEY=填写你自己的APIKey
+LLM_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
+LLM_MODEL=qwen-plus
+LLM_API_KEY=填写自己的APIKey
 ```
 
-配置后即可由执行代理运行真实验证。API Key 未提供之前不会伪造或标记任何真实模型 Trace。
+API Key 从阿里云百炼控制台获取，并与接入地域匹配。本项目不会提交 `.env`，不会把 Authorization 头或密钥写入 Trace。
 
-## 接口取舍
+## 复现命令
 
-[DeepSeek Chat Completion 文档](https://api-docs.deepseek.com/api/create-chat-completion)注明 `required` 工具选择不支持思考模式，故适配器明确发送 `thinking.type=disabled`。请求与日志不需要模型内部思维过程。
+```console
+python -m src.scheduler demo --provider live --env-file .env --out work/live-reproduction
+```
 
-[Tool Calls 文档](https://api-docs.deepseek.com/guides/tool_calls)注明 strict 属于 Beta 功能，需要专用 Beta 地址。项目使用普通地址时不发送 strict，也不发送该接口未列出的 parallel_tool_calls 参数；每轮一个工具的要求由系统提示、响应解析和执行器上限约束。工具自身继续校验参数、权限和保存条件。
+先输出到新的目录，避免覆盖已经提交的证据。需要归档时保留完整输入、输出、Trace 和 evaluation.json，再更新评估结论。
 
-以上差异已有 HTTP 替身契约测试；替身测试不能替代真实模型运行。真实请求失败时必须保留失败记录，不能切为 Mock 后声称成功。
+## 协议依据
+
+- [阿里云 OpenAI 兼容接口](https://help.aliyun.com/zh/model-studio/developer-reference/compatibility-of-openai-with-dashscope)
+- [千问 Function Calling](https://help.aliyun.com/zh/model-studio/qwen-function-calling)
+
+适配器发送原生 tools，明确关闭思考模式 `enable_thinking=false`，设置 `parallel_tool_calls=false`，并要求返回工具动作。工具参数与权限由执行器再次校验；不依赖服务端 strict 字段。
+
+真实响应的 response_id、tool_call_id、返回模型名、token 用量和调用延迟随每一步保存。模型内部思维过程和真实密钥不进入交付文件。
+
+此前保留的 DeepSeek 适配采用其非思考工具调用协议，但本次没有使用 DeepSeek 密钥或服务作为评估来源。

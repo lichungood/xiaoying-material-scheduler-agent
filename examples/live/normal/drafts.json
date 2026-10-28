@@ -1,0 +1,13 @@
+[
+  {
+    "draft_id": "draft_4ad365fcb19cbe8ade4b5679",
+    "request_id": "normal-001",
+    "material_id": "M01",
+    "request_hash": "345f8a64c90bcddfe26eb282f0e8a6611452fddcf2dddd6d37710bdcd88af1de",
+    "channel": "douyin",
+    "proposed_at": "2026-11-01T19:00+08:00",
+    "confirmation_status": "not_required",
+    "requested_at": "2026-11-01T19:00+08:00",
+    "hard_time": 1
+  }
+]

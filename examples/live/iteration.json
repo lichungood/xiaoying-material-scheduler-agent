@@ -1,0 +1,34 @@
+{
+  "initial": {
+    "path": "../live-attempts/01-initial",
+    "passed": 11,
+    "scenarios": 13,
+    "model_response_count": 74,
+    "token_usage": {
+      "prompt_tokens": 103707,
+      "completion_tokens": 3487,
+      "total_tokens": 107194
+    },
+    "failed_cases": [
+      "missing",
+      "query_failure"
+    ]
+  },
+  "changes": [
+    "Expose review_required after reads and explicitly require fresh review after supplement",
+    "Expose retryable for transient read-only failures and clarify at most one retry",
+    "Keep save storage errors terminal for this invocation; user resubmission can retry"
+  ],
+  "final": {
+    "path": ".",
+    "passed": 13,
+    "scenarios": 13,
+    "model_response_count": 79,
+    "token_usage": {
+      "prompt_tokens": 120555,
+      "completion_tokens": 3851,
+      "total_tokens": 124406
+    }
+  },
+  "selection_policy": "The first full run and the full post-change run are both preserved; no failing case was removed from either matrix."
+}

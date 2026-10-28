@@ -3,7 +3,7 @@ from datetime import datetime, timezone
 import json
 import uuid
 from .domain import slot
-from .providers import SYSTEM_PROMPT, TOOL_SCHEMAS
+from .providers import SYSTEM_PROMPT, ModelCallError
 from .tools import BusinessTools
 
 
@@ -29,11 +29,16 @@ class Agent:
                     action = self.provider.decide(messages, context)
                     if not isinstance(action.arguments, dict) or not isinstance(action.reason, str):
                         raise ValueError("非法动作")
-                except Exception:
+                except Exception as exc:
                     # Do not serialize raw provider exceptions, which can contain secrets.
+                    diagnostic = {"ok": False, "error": "model_error"}
+                    if isinstance(exc, ModelCallError):
+                        diagnostic["cause"] = exc.code
+                        if exc.http_status is not None:
+                            diagnostic["http_status"] = exc.http_status
                     trace.append({"step": step, "material_id": material_id, "tool": "model_error",
                                   "arguments": {}, "reason": "模型未能返回有效动作",
-                                  "result": {"ok": False, "error": "model_error"}})
+                                  "result": diagnostic})
                     termination = "model_error"
                     break
                 call_id = action.call_id or f"call_{step}"
@@ -58,6 +63,8 @@ class Agent:
                 trace.append({"step": step, "material_id": material_id, "tool": action.name,
                               "arguments": action.arguments, "reason": action.reason[:300],
                               "result": result})
+                if action.receipt is not None:
+                    trace[-1]["model_receipt"] = action.receipt
                 messages.append({"role": "assistant", "content": None, "tool_calls": [{
                     "id": call_id, "type": "function", "function": {"name": action.name,
                         "arguments": json.dumps({**action.arguments, "reason": action.reason[:300]}, ensure_ascii=False)}}]})

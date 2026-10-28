@@ -1,0 +1,13 @@
+[
+  {
+    "draft_id": "draft_7c1f554592eb2cb0442c350f",
+    "request_id": "changed_schedule-001",
+    "material_id": "M01",
+    "request_hash": "544a4bdb62681f8233946490249bd4a42a666907c07067ad52fa1da013c34e61",
+    "channel": "douyin",
+    "proposed_at": "2026-11-01T18:00+08:00",
+    "confirmation_status": "not_required",
+    "requested_at": "2026-11-01T18:00+08:00",
+    "hard_time": 1
+  }
+]

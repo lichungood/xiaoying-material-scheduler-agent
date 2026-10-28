@@ -4,7 +4,7 @@
 
 公开仓库：[lichungood/xiaoying-material-scheduler-agent](https://github.com/lichungood/xiaoying-material-scheduler-agent)。交付说明见 [submission.md](docs/submission.md)。
 
-**当前已验证：43 项测试通过，13 组离线验收场景通过。真实模型入口及 DeepSeek 适配已实现，真实验证尚待本机配置 API Key。Mock 的条件决策仅验证流程，不能作为满足真实模型 ReAct 要求的证据。**
+**已真实接入千问 qwen-plus：45 项测试、13 组离线场景、13 组真实模型场景全部通过。首轮真实评估为 11/13，完整失败与改进记录均保留。Mock 的条件决策仅验证流程，真实模型证据单独提交。**
 
 所有结果都是草稿；`completed` 表示草稿已保存且无需进一步时间确认，始终 `published=false`。
 
@@ -16,6 +16,8 @@
 - [AI 使用与贡献记录](docs/04-ai-usage.md)
 - [工程复盘与下一步](docs/05-retrospective.md)
 - [离线运行结果总表](examples/mock/summary.md)、[机器可读评估](examples/mock/evaluation.json)
+- [真实模型运行结果](examples/live/summary.md)、[实际响应凭据汇总](examples/live/provenance.json)
+- [首轮真实失败记录](examples/live-attempts/01-initial/evaluation.json)、[模型验证与改进说明](docs/live-evidence.md)
 - [可执行测试结果](examples/verification/tests.json)、[完整测试日志](examples/verification/unittest.txt)
 
 ## 环境与安装
@@ -87,11 +89,11 @@ python -m src.scheduler run --provider mock --input examples/inputs/normal.json 
 | 4 | 输入或配置错误 |
 | 1 | `demo` 中存在未通过的验收断言 |
 
-## 真实模型入口（尚未实测）
+## 真实模型运行
 
 适配器采用 Chat Completions 原生函数调用。兼容接口默认使用 `tools`、严格 JSON Schema、`tool_choice=required` 并关闭并行工具调用。DeepSeek 普通接口则使用非严格工具定义并显式关闭思考模式，以符合其协议；单动作返回由解析器校验。模型每轮看到真实工具返回，重新选择一个动作；不会根据场景名称选择预设日志。
 
-本项目当前选择 DeepSeek，接口地址和 `deepseek-flash` 模型名已预填。请按 [DeepSeek 配置步骤](docs/model-setup.md) 仅在本机 `.env` 中补充 API Key。
+本项目最终选择阿里云百炼千问，模型 `qwen-plus`，地址 `https://dashscope.aliyuncs.com/compatible-mode/v1`。适配器明确发送 `enable_thinking=false`，保留单工具调用约束，使用运行时参数和权限校验。具体配置见 [千问配置步骤](docs/model-setup.md)。DeepSeek 适配仍保留，但没有作为本次真实评估服务。
 
 [.env.example](.env.example) 仅为模板，程序**不自动加载 `.env`**。在 PowerShell 当前进程配置：
 
@@ -112,13 +114,13 @@ python -m src.scheduler demo --provider live --env-file .env --out examples/live
 
 私有配置只接受 LLM_API_KEY、LLM_MODEL、LLM_BASE_URL 三个字段，以 `名称=值` 每行一个填写，可使用成对单引号或双引号。不会执行文件内容，错误不会回显值；显式文件优先于当前进程环境变量，且不修改进程环境。`.env` 已被 Git 忽略，打包脚本也不会包含它。
 
-需要补交真实模型证据时，运行以下命令生成独立目录的实际记录，并人工复核决策依据、硬性时间边界与保存状态：
+复现真实评估时，运行以下命令生成独立目录的实际记录，并人工复核决策依据、硬性时间边界与保存状态：
 
 ```console
-python -m src.scheduler demo --provider live --out examples/live
+python -m src.scheduler demo --provider live --env-file .env --out work/live-reproduction
 ```
 
-此命令未在本轮执行。真实模型不保证通过所有场景；应保留失败记录、修订后再次评估。至少保留两条不同工具结果下的真实决策路径，覆盖正常、信息不足、工具失败。HTTP 替身测试只验证协议构造，不证明服务商兼容性或模型质量。
+本轮已执行真实评估，提交的 Trace 包含服务端响应 ID、工具调用 ID、实际 token 用量和简短动作依据，没有提交内部思维过程。首轮失败记录保存在 live-attempts，改进后结果单独保存在 live。模型后续运行不保证完全相同，应保留新的成功与失败记录；HTTP 替身测试与真实评估分别记录。
 
 ## 目录
 
@@ -128,13 +130,15 @@ tests/           行为、异常、并发及模型越权边界测试
 data/            合成素材、补充登记表、规则、已有排期
 examples/inputs/ 可修改输入
 examples/mock/   本轮离线实际输出与 Trace
+examples/live/   千问真实模型输出、Trace 与响应凭据
+examples/live-attempts/ 保留的首轮真实失败记录
 examples/verification/ 测试与交付检查记录
 docs/            五份要求文档及实际工作记录
 scripts/         测试记录与打包脚本
 ```
 
-## 提交前待完成
+## 交付与边界
 
-1. 候选人复核 AI 使用与贡献记录；个人修改、复跑和投入时间均只按实际发生的事实记录，不将 AI 生成归为个人独立编码。
-2. 接入真实模型，保存两条以上真实决策路径，更新评估文档；当前 Mock 记录不能替代此项。
-3. 仓库已创建为公开；提交时填写题号 **1**、上述 GitHub URL 和实际交付版本的 `git rev-parse HEAD`。当前版本的真实模型证据仍待配置后补充，不能将离线结果作为完整 ReAct 验收结论。
+1. AI 使用、候选人与 AI 的贡献按实际协作记录；没有把 AI 生成归为候选人独立编码或手工复跑。
+2. 真实模型结果仅针对提交的合成场景；没有声称具备真实视频语义审核能力或生产环境可靠性。
+3. 仓库为公开；提交时填写题号 **1**、上述 GitHub URL 和实际交付版本的 `git rev-parse HEAD`。最终提交需与远程 main 核对一致。

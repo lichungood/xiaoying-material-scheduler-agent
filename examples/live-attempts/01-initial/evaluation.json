@@ -1,0 +1,194 @@
+{
+  "provider": "live",
+  "evidence_scope": "live_model_run",
+  "scenarios": 13,
+  "passed": 11,
+  "results": [
+    {
+      "scenario": "normal",
+      "expected": "completed",
+      "actual": "completed",
+      "draft_count": 1,
+      "checks": {
+        "final_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "bounded": true
+      },
+      "passed": true,
+      "artifacts": "normal"
+    },
+    {
+      "scenario": "missing",
+      "expected": "needs_information",
+      "actual": "incomplete",
+      "draft_count": 0,
+      "checks": {
+        "final_status": false,
+        "draft_count": true,
+        "never_published": true,
+        "bounded": true
+      },
+      "passed": false,
+      "artifacts": "missing"
+    },
+    {
+      "scenario": "risk",
+      "expected": "blocked",
+      "actual": "blocked",
+      "draft_count": 0,
+      "checks": {
+        "final_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "bounded": true
+      },
+      "passed": true,
+      "artifacts": "risk"
+    },
+    {
+      "scenario": "conflict",
+      "expected": "needs_confirmation",
+      "actual": "needs_confirmation",
+      "draft_count": 1,
+      "checks": {
+        "final_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "bounded": true,
+        "pending_confirmation": true
+      },
+      "passed": true,
+      "artifacts": "conflict"
+    },
+    {
+      "scenario": "duplicate",
+      "expected": "completed",
+      "actual": "completed",
+      "draft_count": 1,
+      "checks": {
+        "final_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "bounded": true,
+        "same_draft_id": true,
+        "duplicate_reported": true
+      },
+      "passed": true,
+      "artifacts": "duplicate"
+    },
+    {
+      "scenario": "save_failure",
+      "expected": "failed",
+      "actual": "failed",
+      "draft_count": 0,
+      "checks": {
+        "final_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "bounded": true
+      },
+      "passed": true,
+      "artifacts": "save_failure"
+    },
+    {
+      "scenario": "supplement",
+      "expected": "completed",
+      "actual": "completed",
+      "draft_count": 1,
+      "checks": {
+        "final_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "bounded": true
+      },
+      "passed": true,
+      "artifacts": "supplement"
+    },
+    {
+      "scenario": "query_failure",
+      "expected": "completed",
+      "actual": "failed",
+      "draft_count": 0,
+      "checks": {
+        "final_status": false,
+        "draft_count": false,
+        "never_published": true,
+        "bounded": true
+      },
+      "passed": false,
+      "artifacts": "query_failure"
+    },
+    {
+      "scenario": "no_slots",
+      "expected": "no_feasible_slot",
+      "actual": "no_feasible_slot",
+      "draft_count": 0,
+      "checks": {
+        "final_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "bounded": true
+      },
+      "passed": true,
+      "artifacts": "no_slots"
+    },
+    {
+      "scenario": "confirmation",
+      "expected": "completed",
+      "actual": "completed",
+      "draft_count": 1,
+      "checks": {
+        "final_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "bounded": true,
+        "explicit_confirmation_only": true
+      },
+      "passed": true,
+      "artifacts": "confirmation"
+    },
+    {
+      "scenario": "batch",
+      "expected": "partial",
+      "actual": "partial",
+      "draft_count": 2,
+      "checks": {
+        "final_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "bounded": true
+      },
+      "passed": true,
+      "artifacts": "batch"
+    },
+    {
+      "scenario": "step_limit",
+      "expected": "incomplete",
+      "actual": "incomplete",
+      "draft_count": 0,
+      "checks": {
+        "final_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "bounded": true
+      },
+      "passed": true,
+      "artifacts": "step_limit"
+    },
+    {
+      "scenario": "changed_schedule",
+      "expected": "completed",
+      "actual": "completed",
+      "draft_count": 1,
+      "checks": {
+        "final_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "bounded": true
+      },
+      "passed": true,
+      "artifacts": "changed_schedule"
+    }
+  ]
+}

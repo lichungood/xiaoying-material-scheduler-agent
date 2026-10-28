@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "run_id": "85a10bcc-b57e-4851-bc95-678eb3af6162",
-  "recorded_at": "2026-10-28T04:33:17.591161+00:00",
+  "run_id": "8c5726a8-97c8-4500-b2ab-60fd4b416e65",
+  "recorded_at": "2026-10-28T05:24:54.570018+00:00",
   "provider": "mock",
   "model": "offline-response-policy-v1",
   "evidence_scope": "offline_workflow_only",
@@ -64,6 +64,7 @@
           "description": "合成产品素材：支持添加字幕，不包含任何效果数据。"
         },
         "supplement_used": false,
+        "review_required": true,
         "source": "synthetic_catalog"
       },
       "next_action": "check_rules",
@@ -142,7 +143,8 @@
       "result": {
         "ok": false,
         "error": "storage_error",
-        "message": "模拟 save_draft 失败（故障注入）"
+        "message": "模拟 save_draft 失败（故障注入）",
+        "retryable": false
       },
       "next_action": "finish",
       "result_summary": {

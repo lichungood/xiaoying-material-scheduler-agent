@@ -1,9 +1,9 @@
 {
-  "recorded_at": "2026-10-28T05:17:12.327837+00:00",
+  "recorded_at": "2026-10-28T05:31:02.221930+00:00",
   "successful": true,
-  "checks_run": 81,
-  "actual_output_files": 15,
-  "actual_trace_steps": 79,
+  "checks_run": 176,
+  "actual_output_files": 30,
+  "actual_trace_steps": 158,
   "broken_links": [],
   "suspicious_files": [],
   "checks": [
@@ -16,7 +16,11 @@
       "passed": true
     },
     {
-      "check": "all_scenarios_pass",
+      "check": "mock:all_scenarios_pass",
+      "passed": true
+    },
+    {
+      "check": "live:all_scenarios_pass",
       "passed": true
     },
     {
@@ -324,6 +328,382 @@
       "passed": true
     },
     {
+      "check": "examples\\live\\batch\\output.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\batch\\output.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\batch\\output.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\batch\\output.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\batch\\output.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\batch\\output.json:real_response_receipts",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\changed_schedule\\output.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\changed_schedule\\output.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\changed_schedule\\output.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\changed_schedule\\output.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\changed_schedule\\output.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\changed_schedule\\output.json:real_response_receipts",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\confirmation\\output-2.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\confirmation\\output-2.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\confirmation\\output-2.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\confirmation\\output-2.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\confirmation\\output-2.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\confirmation\\output-2.json:real_response_receipts",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\confirmation\\output.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\confirmation\\output.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\confirmation\\output.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\confirmation\\output.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\confirmation\\output.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\confirmation\\output.json:real_response_receipts",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\conflict\\output.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\conflict\\output.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\conflict\\output.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\conflict\\output.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\conflict\\output.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\conflict\\output.json:real_response_receipts",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\duplicate\\output-2.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\duplicate\\output-2.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\duplicate\\output-2.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\duplicate\\output-2.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\duplicate\\output-2.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\duplicate\\output-2.json:real_response_receipts",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\duplicate\\output.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\duplicate\\output.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\duplicate\\output.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\duplicate\\output.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\duplicate\\output.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\duplicate\\output.json:real_response_receipts",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\missing\\output.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\missing\\output.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\missing\\output.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\missing\\output.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\missing\\output.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\missing\\output.json:real_response_receipts",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\no_slots\\output.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\no_slots\\output.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\no_slots\\output.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\no_slots\\output.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\no_slots\\output.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\no_slots\\output.json:real_response_receipts",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\normal\\output.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\normal\\output.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\normal\\output.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\normal\\output.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\normal\\output.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\normal\\output.json:real_response_receipts",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\query_failure\\output.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\query_failure\\output.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\query_failure\\output.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\query_failure\\output.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\query_failure\\output.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\query_failure\\output.json:real_response_receipts",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\risk\\output.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\risk\\output.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\risk\\output.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\risk\\output.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\risk\\output.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\risk\\output.json:real_response_receipts",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\save_failure\\output.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\save_failure\\output.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\save_failure\\output.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\save_failure\\output.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\save_failure\\output.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\save_failure\\output.json:real_response_receipts",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\step_limit\\output.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\step_limit\\output.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\step_limit\\output.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\step_limit\\output.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\step_limit\\output.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\step_limit\\output.json:real_response_receipts",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\supplement\\output.json:trace_matches",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\supplement\\output.json:bounded",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\supplement\\output.json:honest_scope",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\supplement\\output.json:input_exists",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\supplement\\output.json:step_fields",
+      "passed": true
+    },
+    {
+      "check": "examples\\live\\supplement\\output.json:real_response_receipts",
+      "passed": true
+    },
+    {
+      "check": "live:at_least_two_distinct_paths",
+      "passed": true
+    },
+    {
+      "check": "live:no_reused_response_ids",
+      "passed": true
+    },
+    {
+      "check": "live:provenance_matches_responses",
+      "passed": true
+    },
+    {
+      "check": "live:source_matches_evaluated_snapshot",
+      "passed": true
+    },
+    {
       "check": "all_tests_pass",
       "passed": true
     },
@@ -332,5 +712,11 @@
       "passed": true
     }
   ],
-  "live_model_evaluated": false
+  "providers_checked": [
+    "mock",
+    "live"
+  ],
+  "live_response_count": 79,
+  "distinct_live_paths": 7,
+  "live_model_evaluated": true
 }

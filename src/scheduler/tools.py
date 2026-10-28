@@ -39,7 +39,7 @@ class BusinessTools:
             if self.faults.get(name, 0) > 0:
                 self.faults[name] -= 1
                 result = {"ok": False, "error": "storage_error" if name == "save_draft" else "tool_unavailable",
-                          "message": f"模拟 {name} 失败（故障注入）"}
+                          "message": f"模拟 {name} 失败（故障注入）", "retryable": name != "save_draft"}
             else:
                 result = methods[name](material_id, **arguments)
         except (ToolError, ValueError, TypeError, KeyError) as exc:
@@ -62,6 +62,7 @@ class BusinessTools:
         self.reviews.pop(material_id, None)  # Changed evidence requires a fresh review.
         return {"ok": True, "status": "found", "material_id": material_id,
                 "metadata": material, "supplement_used": used,
+                "review_required": True,
                 "source": "synthetic_catalog+registry" if used else "synthetic_catalog"}
 
     def _review(self, material_id: str) -> dict:

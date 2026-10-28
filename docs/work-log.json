@@ -11,9 +11,25 @@
   "live_model_calls": 0,
   "tests_passed": 38,
   "scenarios_passed": 13,
-  "remaining": [
+  "remaining_at_first_phase_end": [
     "Real model decision evaluation and traces",
     "Candidate personal reproduction, changes and time record",
     "GitHub repository URL and final commit SHA"
-  ]
+  ],
+  "phase": "initial_offline_implementation",
+  "followup_status_recorded_at": "2026-10-28T05:31:02.096042+00:00",
+  "followup": {
+    "runtime_model": "qwen-plus",
+    "provider": "Alibaba Cloud Model Studio",
+    "model_validation": "initial 11/13; full post-change matrix 13/13; both retained",
+    "tests_passed": 45,
+    "mock_scenarios_passed": 13,
+    "live_scenarios_passed": 13,
+    "formal_live_model_responses": 79,
+    "formal_live_total_tokens": 124406,
+    "candidate_personal_minutes": null,
+    "candidate_contributions": "Requirements, scope and provider choices, public repository authorization, GitHub device authorization and model access configuration",
+    "remaining_required_work_before_push": [],
+    "delivery_commit": "Reported outside the repository after remote SHA verification"
+  }
 }

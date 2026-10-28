@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "run_id": "73368f82-73cc-42aa-b89f-3e99f537eebd",
+  "recorded_at": "2026-10-28T05:22:34.090483+00:00",
+  "provider": "live",
+  "model": "qwen-plus",
+  "evidence_scope": "live_model_run",
+  "request": {
+    "request_id": "risk-001",
+    "material_ids": [
+      "M03"
+    ],
+    "channel": "douyin",
+    "requested_at": "2026-11-01T19:00+08:00",
+    "search_window": {
+      "start": "2026-11-01T18:00+08:00",
+      "end": "2026-11-01T21:00+08:00"
+    },
+    "hard_time": true,
+    "confirmed_slots": {}
+  },
+  "max_steps": 30,
+  "steps_used": 3,
+  "tool_calls_used": 2,
+  "task_status": "blocked",
+  "items": [
+    {
+      "material_id": "M03",
+      "task_status": "blocked",
+      "review_status": "blocked",
+      "risk_reasons": [
+        "包含未经证实的效果或绝对化承诺，需人工审核修订"
+      ],
+      "requested_at": "2026-11-01T19:00+08:00",
+      "suggested_at": null,
+      "pending_items": [],
+      "save_status": "not_attempted",
+      "draft": null,
+      "termination": "finished",
+      "published": false
+    }
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "material_id": "M03",
+      "tool": "read_material",
+      "arguments": {
+        "include_supplement": true
+      },
+      "reason": "先读取素材M03的完整信息",
+      "result": {
+        "ok": true,
+        "status": "found",
+        "material_id": "M03",
+        "metadata": {
+          "title": "存在夸大承诺的广告",
+          "rights_status": "licensed",
+          "content_tags": [
+            "unsubstantiated_claim"
+          ],
+          "allowed_channels": [
+            "douyin"
+          ]
+        },
+        "supplement_used": false,
+        "source": "synthetic_catalog"
+      },
+      "model_receipt": {
+        "service_host": "dashscope.aliyuncs.com",
+        "requested_model": "qwen-plus",
+        "returned_model": "qwen-plus",
+        "response_id": "chatcmpl-94352315-18d9-96a3-924f-4d29118d3fda",
+        "tool_call_id": "call_6ef3151e4c71415d85cf28",
+        "usage": {
+          "total_tokens": 1072,
+          "completion_tokens": 32,
+          "prompt_tokens": 1040,
+          "prompt_tokens_details": {
+            "cached_tokens": 512
+          }
+        },
+        "latency_ms": 1585
+      },
+      "next_action": "check_rules",
+      "result_summary": {
+        "ok": true,
+        "status": "found"
+      }
+    },
+    {
+      "step": 2,
+      "material_id": "M03",
+      "tool": "check_rules",
+      "arguments": {},
+      "reason": "检查素材M03是否符合平台规则",
+      "result": {
+        "ok": true,
+        "status": "blocked",
+        "missing_fields": [],
+        "risks": [
+          {
+            "rule_id": "R-CLAIM",
+            "reason": "包含未经证实的效果或绝对化承诺，需人工审核修订"
+          }
+        ],
+        "rules_version": "synthetic-2026-10-28-v1"
+      },
+      "model_receipt": {
+        "service_host": "dashscope.aliyuncs.com",
+        "requested_model": "qwen-plus",
+        "returned_model": "qwen-plus",
+        "response_id": "chatcmpl-6cbf0f88-21d2-9f49-8575-ee7048ce0b27",
+        "tool_call_id": "call_affa19b660a042e0bb3617",
+        "usage": {
+          "total_tokens": 1209,
+          "completion_tokens": 24,
+          "prompt_tokens": 1185,
+          "prompt_tokens_details": {
+            "cached_tokens": 512
+          }
+        },
+        "latency_ms": 879
+      },
+      "next_action": "finish",
+      "result_summary": {
+        "ok": true,
+        "status": "blocked",
+        "missing_fields": [],
+        "risks": [
+          {
+            "rule_id": "R-CLAIM",
+            "reason": "包含未经证实的效果或绝对化承诺，需人工审核修订"
+          }
+        ]
+      }
+    },
+    {
+      "step": 3,
+      "material_id": "M03",
+      "tool": "finish",
+      "arguments": {
+        "suggested_at": null
+      },
+      "reason": "素材M03存在R-CLAIM规则风险，已阻断，无法进入排期流程",
+      "result": {
+        "ok": true,
+        "status": "finished"
+      },
+      "model_receipt": {
+        "service_host": "dashscope.aliyuncs.com",
+        "requested_model": "qwen-plus",
+        "returned_model": "qwen-plus",
+        "response_id": "chatcmpl-074b6baa-fef8-9cbe-83cd-7e28881faa53",
+        "tool_call_id": "call_3b1627f269074d68966130",
+        "usage": {
+          "total_tokens": 1349,
+          "completion_tokens": 41,
+          "prompt_tokens": 1308,
+          "prompt_tokens_details": {
+            "cached_tokens": 960
+          }
+        },
+        "latency_ms": 1383
+      },
+      "next_action": "end_item",
+      "result_summary": {
+        "ok": true,
+        "status": "finished"
+      }
+    }
+  ],
+  "published": false
+}

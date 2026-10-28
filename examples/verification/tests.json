@@ -1,11 +1,11 @@
 {
-  "recorded_at": "2026-10-28T05:16:33.003580+00:00",
+  "recorded_at": "2026-10-28T05:25:55.925729+00:00",
   "python": "3.13.9",
-  "tests_run": 43,
+  "tests_run": 45,
   "failures": 0,
   "errors": 0,
   "skipped": 0,
-  "duration_seconds": 0.507,
+  "duration_seconds": 0.473,
   "successful": true,
   "live_model_evaluated": false,
   "cases": [
@@ -30,6 +30,10 @@
       "status": "passed"
     },
     {
+      "test": "test_scheduler.LiveContractTests.test_http_error_trace_contains_status_but_no_response_body",
+      "status": "passed"
+    },
+    {
       "test": "test_scheduler.LiveContractTests.test_live_rejects_multiple_calls_and_insecure_urls",
       "status": "passed"
     },
@@ -39,6 +43,10 @@
     },
     {
       "test": "test_scheduler.LiveContractTests.test_live_sends_native_tools_and_parses_one_action",
+      "status": "passed"
+    },
+    {
+      "test": "test_scheduler.LiveContractTests.test_qwen_request_and_response_receipt",
       "status": "passed"
     },
     {

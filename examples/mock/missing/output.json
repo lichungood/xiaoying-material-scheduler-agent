@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "run_id": "fd190c0c-f14c-4693-8d57-f49eeb42f6eb",
-  "recorded_at": "2026-10-28T04:33:17.556218+00:00",
+  "run_id": "e206915c-b949-4e26-84e5-a8dac5ce1bad",
+  "recorded_at": "2026-10-28T05:24:54.525677+00:00",
   "provider": "mock",
   "model": "offline-response-policy-v1",
   "evidence_scope": "offline_workflow_only",
@@ -61,6 +61,7 @@
           ]
         },
         "supplement_used": false,
+        "review_required": true,
         "source": "synthetic_catalog"
       },
       "next_action": "check_rules",
@@ -114,6 +115,7 @@
           ]
         },
         "supplement_used": false,
+        "review_required": true,
         "source": "synthetic_catalog"
       },
       "next_action": "check_rules",

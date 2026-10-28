@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "run_id": "78d5c71a-9a03-42e2-95b0-f935e8f98e25",
-  "recorded_at": "2026-10-28T04:33:17.646544+00:00",
+  "run_id": "aa42fba0-faf8-48db-9443-a40956b3e9a9",
+  "recorded_at": "2026-10-28T05:24:54.642897+00:00",
   "provider": "mock",
   "model": "offline-response-policy-v1",
   "evidence_scope": "offline_workflow_only",
@@ -64,6 +64,7 @@
           "description": "合成产品素材：支持添加字幕，不包含任何效果数据。"
         },
         "supplement_used": false,
+        "review_required": true,
         "source": "synthetic_catalog"
       },
       "next_action": "check_rules",
