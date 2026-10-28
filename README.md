@@ -2,6 +2,8 @@
 
 小影科技 2027 校招 AI Agent 笔试，第 1 题。帮助内容团队审核合成素材、查询发布时段并保存无冲突草稿。
 
+公开仓库：[lichungood/xiaoying-material-scheduler-agent](https://github.com/lichungood/xiaoying-material-scheduler-agent)。交付说明见 [submission.md](docs/submission.md)。
+
 **当前已验证：42 项测试通过，13 组离线验收场景通过。真实模型入口已实现，后续真实验证请求尚待配置密钥与模型。Mock 的条件决策仅验证流程，不能作为满足真实模型 ReAct 要求的证据。**
 
 所有结果都是草稿；`completed` 表示草稿已保存且无需进一步时间确认，始终 `published=false`。
@@ -133,4 +135,4 @@ scripts/         测试记录与打包脚本
 
 1. 候选人复核 AI 使用与贡献记录；个人修改、复跑和投入时间均只按实际发生的事实记录，不将 AI 生成归为个人独立编码。
 2. 接入真实模型，保存两条以上真实决策路径，更新评估文档；当前 Mock 记录不能替代此项。
-3. 上传同一 GitHub 仓库，确认评审账号可读，记录题号 **1**、GitHub URL 和最终 `git rev-parse HEAD`。本轮未创建远程仓库，未生成最终提交 SHA。
+3. 仓库已创建为公开；提交时填写题号 **1**、上述 GitHub URL 和实际交付版本的 `git rev-parse HEAD`。当前版本的真实模型证据仍待配置后补充，不能将离线结果作为完整 ReAct 验收结论。

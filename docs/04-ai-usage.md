@@ -31,4 +31,6 @@ OpenAI Docs 技能用于核对真实模型工具协议。首次网络访问失�
 | 使用的模型服务与模型名 | 本轮运行没有真实模型 |
 | 真实模型费用与验证结果 | 未产生本项目真实模型调用，未验证 |
 
-后续如发生候选人直接修改或手工复跑，再追加具体事实。真实模型证据只有实际调用后才记录，GitHub URL 与 SHA 只有远程创建、推送和核验后才记录。真实密钥只保存在本机环境变量或 Git 忽略的私有 `.env`，不写入仓库、输入样例或 Trace。
+候选人已完成 GitHub 设备授权，公开仓库已创建为 [lichungood/xiaoying-material-scheduler-agent](https://github.com/lichungood/xiaoying-material-scheduler-agent)。推送与提交 SHA 以实际 Git 操作及远程核验为准。
+
+后续如发生候选人直接修改或手工复跑，再追加具体事实。真实模型证据只有实际调用后才记录；当前密钥和模型名仍未配置。真实密钥只保存在本机环境变量或 Git 忽略的私有 `.env`，不写入仓库、输入样例或 Trace。
