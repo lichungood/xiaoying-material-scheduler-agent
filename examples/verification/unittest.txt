@@ -2,6 +2,7 @@ test_file_config_is_explicit_and_does_not_mutate_process (test_private_config.Pr
 test_invalid_private_config_errors_do_not_echo_values (test_private_config.PrivateConfigTests.test_invalid_private_config_errors_do_not_echo_values) ... ok
 test_mock_never_loads_private_config_or_silently_uses_it (test_private_config.PrivateConfigTests.test_mock_never_loads_private_config_or_silently_uses_it) ... ok
 test_private_config_does_not_execute_shell_expressions (test_private_config.PrivateConfigTests.test_private_config_does_not_execute_shell_expressions) ... ok
+test_deepseek_uses_documented_non_thinking_tool_contract (test_scheduler.LiveContractTests.test_deepseek_uses_documented_non_thinking_tool_contract) ... ok
 test_live_rejects_multiple_calls_and_insecure_urls (test_scheduler.LiveContractTests.test_live_rejects_multiple_calls_and_insecure_urls) ... ok
 test_live_requires_explicit_configuration (test_scheduler.LiveContractTests.test_live_requires_explicit_configuration) ... ok
 test_live_sends_native_tools_and_parses_one_action (test_scheduler.LiveContractTests.test_live_sends_native_tools_and_parses_one_action) ... ok
@@ -42,6 +43,6 @@ test_supplement_changes_action_and_allows_save (test_scheduler.SchedulerTests.te
 test_unknown_publish_tool_and_cross_material_access_are_rejected (test_scheduler.SchedulerTests.test_unknown_publish_tool_and_cross_material_access_are_rejected) ... ok
 
 ----------------------------------------------------------------------
-Ran 42 tests in 0.380s
+Ran 43 tests in 0.428s
 
 OK

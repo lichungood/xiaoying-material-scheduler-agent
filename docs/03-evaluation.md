@@ -11,7 +11,7 @@ python -m src.scheduler demo --provider mock
 python scripts/check.py
 ```
 
-当前实际结果：**13/13 场景通过，42/42 测试通过，0 失败、0 错误、0 跳过**。准确运行时间、Python 版本与逐项结果见 [tests.json](../examples/verification/tests.json)，原始测试日志见 [unittest.txt](../examples/verification/unittest.txt)。这些数字只代表工程与离线流程验证。
+当前实际结果：**13/13 场景通过，43/43 测试通过，0 失败、0 错误、0 跳过**。准确运行时间、Python 版本与逐项结果见 [tests.json](../examples/verification/tests.json)，原始测试日志见 [unittest.txt](../examples/verification/unittest.txt)。这些数字只代表工程与离线流程验证。
 
 ## 验收证据矩阵
 
@@ -43,7 +43,7 @@ python scripts/check.py
 
 `test_real_sqlite_write_failure_is_not_reported_as_saved` 对连接执行 `PRAGMA query_only = ON`，让 SQLite 真实拒绝写入，验证错误回滚并返回 failed，补足仅靠故障注入的局限。`test_save_failure_is_explicit_and_retryable` 验证保存失败后可用相同请求重跑，最终只有一份草稿。
 
-三项 LiveContractTests 用 HTTP 替身测试配置、函数调用请求和响应解析，未联网调用模型。不能把这三项通过等同于真实模型接入成功。
+四项 LiveContractTests 用 HTTP 替身测试配置、函数调用请求和响应解析，包含 DeepSeek 非思考模式和非严格工具定义的协议检查，未联网调用模型。不能把这些测试通过等同于真实模型接入成功。
 
 后续增加四项 PrivateConfigTests，检查显式私有配置的优先级、进程隔离、配置错误不回显密钥、不执行文件中的表达式以及 Mock/live 不静默混用。配置功能已通过测试，但没有据此声称产生了真实模型证据。
 

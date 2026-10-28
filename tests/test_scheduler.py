@@ -14,7 +14,7 @@ from unittest.mock import patch, MagicMock
 from src.scheduler.agent import Agent
 from src.scheduler.cli import ROOT, execute
 from src.scheduler.domain import Request
-from src.scheduler.providers import Action, LiveProvider, MockProvider
+from src.scheduler.providers import Action, LiveProvider, MockProvider, TOOL_SCHEMAS
 from src.scheduler.storage import DraftStore
 from src.scheduler.tools import BusinessTools
 
@@ -379,6 +379,23 @@ class LiveContractTests(unittest.TestCase):
                 LiveProvider().decide([], {})
         with patch.dict(os.environ, {"LLM_BASE_URL": "http://example.invalid/v1"}), self.assertRaises(ValueError):
             LiveProvider()
+
+    def test_deepseek_uses_documented_non_thinking_tool_contract(self):
+        response = MagicMock()
+        response.__enter__.return_value.read.return_value = json.dumps({"choices": [{"message": {"tool_calls": [{
+            "id": "deepseek-call", "function": {"name": "finish", "arguments": json.dumps({"suggested_at": None, "reason": "结束"})}
+        }]}}]}).encode("utf-8")
+        with patch("urllib.request.urlopen", return_value=response) as send:
+            provider = LiveProvider({"LLM_BASE_URL": "https://api.deepseek.com", "LLM_MODEL": "deepseek-flash", "LLM_API_KEY": "test-placeholder"})
+            action = provider.decide([], {})
+        body = json.loads(send.call_args.args[0].data)
+        self.assertEqual(provider.url, "https://api.deepseek.com/chat/completions")
+        self.assertEqual(body["thinking"], {"type": "disabled"})
+        self.assertEqual(body["tool_choice"], "required")
+        self.assertNotIn("parallel_tool_calls", body)
+        self.assertTrue(all("strict" not in tool["function"] for tool in body["tools"]))
+        self.assertTrue(all(tool["function"]["strict"] for tool in TOOL_SCHEMAS))
+        self.assertEqual(action.name, "finish")
 
 
 if __name__ == "__main__":

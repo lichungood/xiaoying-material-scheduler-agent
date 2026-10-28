@@ -6,8 +6,8 @@
 | 项目 | 素材审核与发布排期 Agent |
 | GitHub URL | https://github.com/lichungood/xiaoying-material-scheduler-agent |
 | 可见性 | 公开 |
-| 当前验证 | 42 项测试、13 组离线场景通过 |
-| 真实模型决策 | 待本机配置模型名与密钥后运行；当前没有真实模型 Trace |
+| 当前验证 | 43 项测试、13 组离线场景通过 |
+| 真实模型决策 | 已选择 DeepSeek，待本机配置 API Key 后运行；当前没有真实模型 Trace |
 | AI 与个人贡献 | 见 [04-ai-usage.md](04-ai-usage.md)，按实际协作归属记录 |
 
 提交 SHA 应从实际交付版本获取：

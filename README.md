@@ -4,7 +4,7 @@
 
 公开仓库：[lichungood/xiaoying-material-scheduler-agent](https://github.com/lichungood/xiaoying-material-scheduler-agent)。交付说明见 [submission.md](docs/submission.md)。
 
-**当前已验证：42 项测试通过，13 组离线验收场景通过。真实模型入口已实现，后续真实验证请求尚待配置密钥与模型。Mock 的条件决策仅验证流程，不能作为满足真实模型 ReAct 要求的证据。**
+**当前已验证：43 项测试通过，13 组离线验收场景通过。真实模型入口及 DeepSeek 适配已实现，真实验证尚待本机配置 API Key。Mock 的条件决策仅验证流程，不能作为满足真实模型 ReAct 要求的证据。**
 
 所有结果都是草稿；`completed` 表示草稿已保存且无需进一步时间确认，始终 `published=false`。
 
@@ -89,7 +89,9 @@ python -m src.scheduler run --provider mock --input examples/inputs/normal.json 
 
 ## 真实模型入口（尚未实测）
 
-适配器采用 Chat Completions 原生函数调用。服务需支持 `tools`、严格 JSON Schema、`tool_choice=required`、关闭并行工具调用。模型每轮看到真实工具返回，重新选择一个动作；不会根据场景名称选择预设日志。
+适配器采用 Chat Completions 原生函数调用。兼容接口默认使用 `tools`、严格 JSON Schema、`tool_choice=required` 并关闭并行工具调用。DeepSeek 普通接口则使用非严格工具定义并显式关闭思考模式，以符合其协议；单动作返回由解析器校验。模型每轮看到真实工具返回，重新选择一个动作；不会根据场景名称选择预设日志。
+
+本项目当前选择 DeepSeek，接口地址和 `deepseek-flash` 模型名已预填。请按 [DeepSeek 配置步骤](docs/model-setup.md) 仅在本机 `.env` 中补充 API Key。
 
 [.env.example](.env.example) 仅为模板，程序**不自动加载 `.env`**。在 PowerShell 当前进程配置：
 

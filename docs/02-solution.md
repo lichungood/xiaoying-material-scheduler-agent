@@ -51,3 +51,5 @@ Python 标准库 + SQLite + CLI 使离线复现无需安装依赖，适合核心
 实时模型适配器使用 HTTPS、Chat Completions function calling、严格工具参数与单动作调用，模型名由环境变量或显式私有配置提供。参考 [OpenAI Function calling 文档](https://developers.openai.com/api/docs/guides/function-calling)。首次文档访问失败，后续获得网络权限后已读取官方页面并核对 strict、parallel_tool_calls、tool_call_id 等协议字段；当前仍只完成 HTTP 替身契约测试，没有声称已验证实际服务商兼容性。私有配置不会执行其中的 shell 表达式，解析错误不回显密钥。
 
 外部合成数据在每次 run 开始加载为快照；不覆盖运行中外部平台改排的实时一致性。草稿数据库的事务与唯一约束仍对本地并发写入生效。这是可运行演示的明确边界。
+
+候选人后续选择 DeepSeek。适配器针对其官方域名使用普通接口，移除仅 Beta 支持的 strict 字段，明确关闭思考模式以支持 required 工具选择，也不发送其文档未列出的并行调用参数。工具参数与权限继续由运行时代码检查；若响应并非一个工具调用，会明确返回协议失败而不执行多项副作用。接口依据与配置步骤见 [model-setup.md](model-setup.md)。

@@ -1,11 +1,11 @@
 {
-  "recorded_at": "2026-10-28T04:54:02.372126+00:00",
+  "recorded_at": "2026-10-28T05:16:33.003580+00:00",
   "python": "3.13.9",
-  "tests_run": 42,
+  "tests_run": 43,
   "failures": 0,
   "errors": 0,
   "skipped": 0,
-  "duration_seconds": 0.452,
+  "duration_seconds": 0.507,
   "successful": true,
   "live_model_evaluated": false,
   "cases": [
@@ -23,6 +23,10 @@
     },
     {
       "test": "test_private_config.PrivateConfigTests.test_private_config_does_not_execute_shell_expressions",
+      "status": "passed"
+    },
+    {
+      "test": "test_scheduler.LiveContractTests.test_deepseek_uses_documented_non_thinking_tool_contract",
       "status": "passed"
     },
     {

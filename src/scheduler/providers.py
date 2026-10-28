@@ -3,6 +3,7 @@
 Mock decisions exercise orchestration, not model intelligence or ReAct quality.
 """
 from dataclasses import dataclass
+from copy import deepcopy
 import json
 import os
 import urllib.error
@@ -125,10 +126,20 @@ class LiveProvider:
         if not self.key or not self.model:
             raise ValueError("live 模式必须配置 LLM_API_KEY 和 LLM_MODEL；不会自动降级为 Mock")
         self.url = base + "/chat/completions"
+        self.deepseek = parsed.hostname == "api.deepseek.com"
 
     def decide(self, messages: list[dict], context: dict) -> Action:
-        body = json.dumps({"model": self.model, "messages": messages, "tools": TOOL_SCHEMAS,
-                           "tool_choice": "required", "parallel_tool_calls": False}).encode("utf-8")
+        payload = {"model": self.model, "messages": messages, "tools": TOOL_SCHEMAS,
+                   "tool_choice": "required", "parallel_tool_calls": False}
+        if self.deepseek:
+            # Official ordinary endpoint: strict schemas are a separate Beta feature.
+            # required tool choice is rejected in thinking mode, so disable it explicitly.
+            payload["tools"] = deepcopy(TOOL_SCHEMAS)
+            for tool in payload["tools"]:
+                tool["function"].pop("strict", None)
+            payload["thinking"] = {"type": "disabled"}
+            payload.pop("parallel_tool_calls")  # Not part of the documented DeepSeek contract.
+        body = json.dumps(payload).encode("utf-8")
         request = urllib.request.Request(self.url, data=body, method="POST", headers={
             "Content-Type": "application/json", "Authorization": "Bearer " + self.key})
         try:

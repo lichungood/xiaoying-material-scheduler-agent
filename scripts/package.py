@@ -5,7 +5,7 @@ from pathlib import Path
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-TOP_FILES = {"README.md", "requirements.txt", ".env.example", ".gitignore"}
+TOP_FILES = {"README.md", "requirements.txt", ".env.example", ".gitignore", ".gitattributes"}
 TOP_DIRS = {"src", "tests", "data", "examples", "docs", "scripts"}
 
 
